@@ -1,65 +1,178 @@
-import Image from "next/image";
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import Hero from '@/components/Hero';
+import PracticeGrid from '@/components/PracticeGrid';
+import Link from 'next/link';
+import { FIRM_INFO, PRACTICE_AREAS, PARTNERS, MAJOR_CLIENTS, CORE_VALUES } from '@/lib/constants';
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <>
+      <Header />
+      <Hero />
+
+      {/* About Section */}
+      <section className="section bg-surface">
+        <div className="container">
+          <div style={{ maxWidth: '900px', margin: '0 auto', textAlign: 'center' }}>
+            <h2>About Us</h2>
+            <p style={{ fontSize: 'var(--font-size-lg)', lineHeight: 'var(--line-height-relaxed)', fontFamily: 'Inter, sans-serif' }}>
+              Kimani Wambua Advocates is a medium-sized legal practice and consultancy firm set up in {FIRM_INFO.established} to provide timely and amicable legal solutions to meet the needs of its clients.
+            </p>
+            <div className="grid grid-cols-3" style={{ marginTop: 'var(--space-2xl)', gap: 'var(--space-xl)' }}>
+              <div>
+                <h3 style={{ color: 'var(--color-secondary)', fontSize: 'var(--font-size-4xl)' }}>9+</h3>
+                <p>Years of Experience</p>
+              </div>
+              <div>
+                <h3 style={{ color: 'var(--color-secondary)', fontSize: 'var(--font-size-4xl)' }}>7</h3>
+                <p>Practice Areas</p>
+              </div>
+              <div>
+                <h3 style={{ color: 'var(--color-secondary)', fontSize: 'var(--font-size-4xl)' }}>3</h3>
+                <p>Expert Partners</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Vision & Mission */}
+      <section className="section">
+        <div className="container">
+          <div className="grid grid-cols-2">
+            <div className="card">
+              <h3>Our Vision</h3>
+              <p>To be renowned global legal practitioners.</p>
+            </div>
+            <div className="card">
+              <h3>Our Mission</h3>
+              <p>To apply our core competencies to provide professional innovative legal solutions to satisfy our clients' needs.</p>
+            </div>
+          </div>
+          <div className="grid grid-cols-2" style={{ marginTop: 'var(--space-xl)' }}>
+            {CORE_VALUES.map((value) => (
+              <div key={value.title} className="card">
+                <h4>{value.title}</h4>
+                <p>{value.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Practice Areas */}
+      <section className="section bg-surface">
+        <div className="container">
+          <div className="text-center" style={{ marginBottom: 'var(--space-2xl)' }}>
+            <h2>Our Practice Areas</h2>
+            <p style={{ fontSize: 'var(--font-size-lg)' }}>Comprehensive legal services tailored to your needs</p>
+          </div>
+
+          <PracticeGrid />
+
+          <div style={{ textAlign: 'center', marginTop: 'var(--space-xl)' }}>
+            <Link href="/practice-areas" className="btn btn-primary btn-lg">
+              View All Services
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Team Preview */}
+      <section className="section">
+        <div className="container">
+          <div className="text-center" style={{ marginBottom: 'var(--space-2xl)' }}>
+            <h2>Our Expert Team</h2>
+            <p style={{ fontSize: 'var(--font-size-lg)' }}>Meet our experienced legal professionals</p>
+          </div>
+          <div className="grid grid-cols-3">
+            {PARTNERS.map((partner) => (
+              <div key={partner.id} className="card text-center">
+                <div
+                  style={{
+                    width: '150px',
+                    height: '150px',
+                    borderRadius: 'var(--radius-full)',
+                    background: 'var(--color-secondary)',
+                    margin: '0 auto var(--space-md)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontSize: 'var(--font-size-5xl)',
+                    fontWeight: 'var(--font-weight-bold)',
+                    color: 'var(--color-primary)',
+                  }}
+                >
+                  {partner.name.split(' ')[0][0]}{partner.name.split(' ')[1][0]}
+                </div>
+                <h4 style={{ marginBottom: 'var(--space-xs)' }}>{partner.name}</h4>
+                <p style={{ color: 'var(--color-secondary)', fontWeight: 'var(--font-weight-semibold)', marginBottom: 'var(--space-xs)' }}>
+                  {partner.title}
+                </p>
+                <p style={{ fontSize: 'var(--font-size-sm)', color: 'var(--color-text-light)', marginBottom: 'var(--space-md)' }}>
+                  {partner.department}
+                </p>
+                <a href={`mailto:${partner.email}`} className="btn btn-outline" style={{ fontSize: 'var(--font-size-sm)' }}>
+                  Contact
+                </a>
+              </div>
+            ))}
+          </div>
+          <div style={{ textAlign: 'center', marginTop: 'var(--space-xl)' }}>
+            <Link href="/team" className="btn btn-secondary btn-lg">
+              View Full Team
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Clients Section */}
+      <section className="section bg-surface">
+        <div className="container">
+          <div className="text-center" style={{ marginBottom: 'var(--space-2xl)' }}>
+            <h2>Our Valued Clients</h2>
+            <p style={{ fontSize: 'var(--font-size-lg)' }}>Trusted by leading organizations</p>
+          </div>
+          <div className="grid grid-cols-4" style={{ gap: 'var(--space-md)' }}>
+            {MAJOR_CLIENTS.slice(0, 8).map((client) => (
+              <div
+                key={client}
+                className="card text-center"
+                style={{
+                  padding: 'var(--space-md)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  minHeight: '100px',
+                }}
+              >
+                <p style={{ fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-semibold)' }}>{client}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="section" style={{ background: 'linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%)', color: 'var(--color-text-white)' }}>
+        <div className="container text-center">
+          <h2 style={{ color: 'var(--color-text-white)', marginBottom: 'var(--space-lg)' }}>Ready to Get Started?</h2>
+          <p style={{ fontSize: 'var(--font-size-lg)', marginBottom: 'var(--space-xl)', maxWidth: '700px', margin: '0 auto var(--space-xl)' }}>
+            Schedule a consultation with our expert legal team today. We're here to provide the legal solutions you need.
           </p>
+          <div style={{ display: 'flex', gap: 'var(--space-md)', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <Link href="/meeting-booking" className="btn btn-primary btn-lg">
+              Book Consultation
+            </Link>
+            <Link href="/contact" className="btn btn-outline btn-lg" style={{ color: 'white', borderColor: 'white' }}>
+              Contact Us
+            </Link>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+      </section>
+
+      <Footer />
+    </>
   );
 }
