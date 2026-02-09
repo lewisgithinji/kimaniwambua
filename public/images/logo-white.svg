@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 70" fill="none">
+  <!-- Accurate Logo based on "On Black" design -->
+  <!-- Red rectangle background -->
+  <rect x="0" y="10" width="90" height="50" fill="#ed1d24" rx="2"/>
+  
+  <!-- KW letters in white -->
+  <text x="45" y="50" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="900" fill="#ffffff" text-anchor="middle" letter-spacing="-2">KW</text>
+  
+  <!-- Company name in white for black background -->
+  <text x="100" y="28" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#ffffff" letter-spacing="0.5">KIMANI WAMBUA</text>
+  <text x="100" y="45" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#ffffff" letter-spacing="0.8">& COMPANY ADVOCATES</text>
+</svg>

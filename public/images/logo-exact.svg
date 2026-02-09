@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 150" fill="none">
+  <!-- Red Box -->
+  <rect x="10" y="25" width="160" height="100" fill="#8B1A1E"/>
+  
+  <!-- KW Text -->
+  <text x="25" y="105" font-family="Arial, sans-serif" font-size="95" font-weight="900" fill="#000000">K</text>
+  <text x="85" y="105" font-family="Arial, sans-serif" font-size="95" font-weight="900" fill="#9DBBD1">W</text>
+  
+  <!-- Company Name -->
+  <text x="190" y="75" font-family="Arial, sans-serif" font-size="52" font-weight="900" fill="#9DBBD1">KIMANI WAMBUA</text>
+  <text x="190" y="115" font-family="Arial, sans-serif" font-size="34" font-weight="400" fill="#FFFFFF" letter-spacing="1.5">&amp; COMPANY ADVOCATES</text>
+</svg>

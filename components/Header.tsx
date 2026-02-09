@@ -36,38 +36,39 @@ export default function Header() {
                     left: 0,
                     right: 0,
                     zIndex: 'var(--z-fixed)',
-                    backgroundColor: isScrolled ? 'rgba(255, 255, 255, 0.95)' : 'white',
-                    backdropFilter: isScrolled ? 'blur(12px)' : 'none',
-                    borderBottom: '1px solid rgba(0,0,0,0.05)',
+                    backgroundColor: 'rgba(0, 0, 0, 0.8)', // Glassy Black
+                    backdropFilter: 'blur(12px)',
+                    WebkitBackdropFilter: 'blur(12px)',
+                    borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
                     transition: 'all 0.3s ease',
-                    boxShadow: isScrolled ? '0 4px 20px rgba(0,0,0,0.05)' : 'none',
+                    boxShadow: isScrolled ? '0 4px 30px rgba(0, 0, 0, 0.3)' : 'none',
                 }}
             >
                 {/* Top Bar Section */}
                 <div
                     style={{
-                        backgroundColor: '#2a2a2b',
-                        color: 'rgba(255,255,255,0.8)',
+                        backgroundColor: '#000000', // Pitch Black
+                        color: 'rgba(255,255,255,0.9)',
                         fontSize: '0.85rem',
-                        padding: isScrolled ? '0' : '0.5rem 0',
+                        padding: isScrolled ? '0' : '0.6rem 0',
                         height: isScrolled ? '0' : 'auto',
                         overflow: 'hidden',
-                        transition: 'all 0.3s ease',
-                        borderBottom: '1px solid rgba(255,255,255,0.1)'
+                        transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+                        borderBottom: '1px solid rgba(255,255,255,0.05)'
                     }}
                 >
                     <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                         <div style={{ display: 'flex', gap: '1.5rem' }}>
-                            <a href={`tel:${FIRM_INFO.contact.phone}`} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'inherit', textDecoration: 'none' }}>
-                                <span>📞</span> {FIRM_INFO.contact.phone}
+                            <a href={`tel:${FIRM_INFO.contact.phone}`} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'inherit', textDecoration: 'none', fontWeight: '500' }}>
+                                <span style={{ color: 'var(--color-secondary)' }}>📞</span> {FIRM_INFO.contact.phone}
                             </a>
-                            <a href={`mailto:${FIRM_INFO.contact.email}`} style={{ alignItems: 'center', gap: '0.5rem', color: 'inherit', textDecoration: 'none', display: isMobileMenuOpen ? 'none' : 'flex' }}>
-                                <span>✉️</span> {FIRM_INFO.contact.email}
+                            <a href={`mailto:${FIRM_INFO.contact.email}`} style={{ alignItems: 'center', gap: '0.5rem', color: 'inherit', textDecoration: 'none', display: isMobileMenuOpen ? 'none' : 'flex', fontWeight: '500' }}>
+                                <span style={{ color: 'var(--color-secondary)' }}>✉️</span> {FIRM_INFO.contact.email}
                             </a>
                         </div>
-                        <div style={{ display: 'flex', gap: '1rem' }}>
+                        <div style={{ display: 'flex', gap: '1.2rem' }}>
                             {socialIcons.map((social) => (
-                                <a key={social.name} href={social.href} style={{ color: 'white', opacity: 0.8, transition: 'opacity 0.2s' }} className="hover-opacity">
+                                <a key={social.name} href={social.href} style={{ color: 'white', opacity: 0.8, transition: 'all 0.3s' }} className="hover-opacity">
                                     <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
                                         {social.icon}
                                     </svg>
@@ -78,18 +79,26 @@ export default function Header() {
                 </div>
 
                 {/* Main Nav Section */}
-                <div style={{ padding: isScrolled ? '0.8rem 0' : '1.2rem 0', transition: 'padding 0.3s ease' }}>
+                <div style={{
+                    padding: isScrolled ? '0.6rem 0' : '1rem 0',
+                    transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+                    backgroundColor: isScrolled ? 'rgba(0, 0, 0, 0.9)' : 'rgba(0, 0, 0, 0.7)',
+                    backdropFilter: 'blur(15px)',
+                    WebkitBackdropFilter: 'blur(15px)',
+                }}>
                     <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                         <Link href="/" style={{ textDecoration: 'none' }}>
                             <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-sm)' }}>
                                 <img
-                                    src="/images/logo-header.png"
+                                    src="/images/logo-custom.png"
                                     alt="Kimani Wambua & Company Advocates"
                                     style={{
-                                        height: isScrolled ? '45px' : '60px',
+                                        height: isScrolled ? '34px' : '49px',
                                         width: 'auto',
-                                        transition: 'height 0.3s ease',
-                                        objectFit: 'contain'
+                                        transition: 'height 0.4s ease',
+                                        objectFit: 'contain',
+                                        transform: 'scale(1.4)', // Keep scale for cropping
+                                        filter: 'brightness(1.1)'
                                     }}
                                 />
                             </div>
@@ -102,10 +111,10 @@ export default function Header() {
                                     <Link
                                         href={item === 'Home' ? '/' : `/${item.toLowerCase().replace(' ', '-')}`}
                                         style={{
-                                            color: '#2a2a2b',
+                                            color: 'rgba(255, 255, 255, 0.9)',
                                             fontWeight: '600',
                                             fontSize: '0.9rem',
-                                            letterSpacing: '0.02em',
+                                            letterSpacing: '0.04em',
                                             textTransform: 'uppercase',
                                             position: 'relative',
                                         }}
@@ -143,7 +152,7 @@ export default function Header() {
                                 border: 'none',
                                 fontSize: '1.5rem',
                                 cursor: 'pointer',
-                                color: 'var(--color-primary)',
+                                color: 'white',
                                 padding: '0.5rem',
                             }}
                             aria-label="Toggle menu"
@@ -156,16 +165,18 @@ export default function Header() {
                 {/* Mobile Navigation */}
                 {isMobileMenuOpen && (
                     <div
-                        className="mobile-nav glass"
+                        className="mobile-nav"
                         style={{
                             position: 'absolute',
                             top: '100%',
                             left: 0,
                             right: 0,
-                            background: 'white',
+                            background: 'rgba(0, 0, 0, 0.95)',
+                            backdropFilter: 'blur(15px)',
+                            WebkitBackdropFilter: 'blur(15px)',
                             padding: 'var(--space-xl) var(--space-lg)',
-                            borderTop: '1px solid rgba(0,0,0,0.05)',
-                            boxShadow: '0 20px 40px rgba(0,0,0,0.1)',
+                            borderTop: '1px solid rgba(255, 255, 255, 0.1)',
+                            boxShadow: '0 20px 40px rgba(0,0,0,0.5)',
                             height: '100vh',
                             display: 'flex',
                             flexDirection: 'column',
@@ -179,10 +190,12 @@ export default function Header() {
                                         href={item === 'Home' ? '/' : item === 'Book Meeting' ? '/meeting-booking' : `/${item.toLowerCase().replace(' ', '-')}`}
                                         onClick={() => setIsMobileMenuOpen(false)}
                                         style={{
-                                            color: 'var(--color-primary)',
+                                            color: 'white',
                                             fontWeight: '600',
-                                            fontSize: '1.2rem',
+                                            fontSize: '1.4rem',
                                             fontFamily: 'Playfair Display, serif',
+                                            textTransform: 'uppercase',
+                                            letterSpacing: '0.1em'
                                         }}
                                     >
                                         {item}
@@ -192,7 +205,7 @@ export default function Header() {
                         </ul>
                         <div style={{ display: 'flex', gap: '1.5rem', marginTop: 'auto', paddingBottom: '5rem' }}>
                             {socialIcons.map((social) => (
-                                <a key={social.name} href={social.href} style={{ color: 'var(--color-primary)', padding: '10px', background: '#f5f5f5', borderRadius: '50%' }}>
+                                <a key={social.name} href={social.href} style={{ color: 'white', padding: '12px', background: 'rgba(255,255,255,0.1)', borderRadius: '50%' }}>
                                     <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
                                         {social.icon}
                                     </svg>
@@ -215,8 +228,6 @@ export default function Header() {
                     }
                 `}</style>
             </header>
-            {/* Spacer for fixed header */}
-            <div style={{ height: isScrolled ? '80px' : '110px' }}></div>
         </>
     );
 }

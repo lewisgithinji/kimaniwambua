@@ -16,8 +16,7 @@ export const FIRM_INFO = {
         whatsapp: "+254733877867",
     },
     mapCoordinates: {
-        lat: -1.315336,
-        lng: 36.870453,
+        url: "https://maps.app.goo.gl/PWKehaPJWnaBLyQ46",
     },
     socialMedia: {
         linkedin: "#",
@@ -30,7 +29,7 @@ export const FIRM_INFO = {
 export const PARTNERS = [
     {
         id: 1,
-        name: "Francisca Ngina Wambua Mungai",
+        name: "Francisca N. Wambua",
         title: "Managing Partner",
         qualifications: "LL.B (Hons) (NRB), CS",
         department: "Corporate & Commercial",
@@ -41,7 +40,7 @@ export const PARTNERS = [
     },
     {
         id: 2,
-        name: "Victor Kimani",
+        name: "Victor K. Mungai",
         title: "Partner",
         qualifications: "LL.B (Kampala), MCIARB",
         department: "Litigation & Dispute Resolution",
@@ -79,6 +78,17 @@ export const PARTNERS = [
             "Conveyancing",
         ],
         image: "/images/team/daniel.jpg",
+    },
+    {
+        id: 4,
+        name: "Philip Muoka",
+        title: "Consultant Partner",
+        qualifications: "LL.B (UON), Dip (KSL)",
+        department: "Legal Consultancy",
+        email: "pmuoka@kimaniwambuaadvocates.com",
+        bio: "Philip is a Consultant Partner with over 18 years of legal experience. He holds an LLB from the University of Nairobi (UON) and a Diploma in Law from the Kenya School of Law (KSL).",
+        experience: "With nearly two decades of experience, Philip providing unparalleled expertise in complex legal advisory and consultancy frameworks. His deep understanding of the Kenyan legal landscape makes him a key asset to the firm's strategic objectives.",
+        image: "/images/team/philip.jpg",
     },
 ];
 
@@ -236,7 +246,7 @@ export const FAQS = [
     },
     {
         question: "Are you covered by professional indemnity insurance?",
-        answer: "Yes, our law firm is currently covered by professional indemnity insurance with Heritage Insurance Limited. No claims have been made against our law firm, any of our partners or against our insurance policy.",
+        answer: "Yes, our law firm is currently covered by professional indemnity insurance with Britam General Insurance Limited. No claims have been made against our law firm, any of our partners or against our insurance policy.",
     },
     {
         question: "How can I schedule a consultation?",

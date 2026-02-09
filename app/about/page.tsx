@@ -1,123 +1,125 @@
+'use client';
+
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import PageHero from '@/components/PageHero';
-import { FIRM_INFO, CORE_VALUES, PARTNERS, MAJOR_CLIENTS } from '@/lib/constants';
-import { Metadata } from 'next';
-
-export const metadata: Metadata = {
-    title: 'About Us | Kimani Wambua & Company Advocates',
-    description: 'Learn about Kimani Wambua & Company Advocates - established in 2015 to provide professional legal services in Kenya.',
-};
+import { FIRM_INFO, CORE_VALUES, MAJOR_CLIENTS } from '@/lib/constants';
 
 export default function AboutPage() {
     return (
         <>
             <Header />
-            <main style={{ marginTop: '80px' }}>
-                {/* Hero Section */}
-                {/* Hero Section */}
+            <main>
                 <PageHero
-                    title="About Us"
-                    description={`Professional legal services tailored to meet your needs since ${FIRM_INFO.established}`}
+                    title="Our Firm"
+                    description={`Providing sophisticated, timely, and amicable legal solutions since ${FIRM_INFO.established}.`}
+                    backgroundImage="https://images.unsplash.com/photo-1505664194779-8beaceb93744?q=80&w=2070&auto=format&fit=crop"
                 />
 
-                {/* Main About Content */}
-                <section className="section">
+                {/* Narrative Section */}
+                <section className="section bg-white">
                     <div className="container">
-                        <div style={{ maxWidth: '900px', margin: '0 auto' }}>
-                            <h2>Our Story</h2>
-                            <p style={{ fontSize: 'var(--font-size-lg)', lineHeight: 'var(--line-height-relaxed)' }}>
-                                Kimani Wambua Advocates is a medium-sized legal practice and consultancy firm set up in {FIRM_INFO.established} to provide timely and amicable legal solutions to meet the needs of its clients.
-                            </p>
-                            <p style={{ fontSize: 'var(--font-size-lg)', lineHeight: 'var(--line-height-relaxed)' }}>
-                                We are strategically located at {FIRM_INFO.address.building}, {FIRM_INFO.address.area}, which is a fast-growing residential and commercial hub in Nairobi.
-                            </p>
+                        <div className="max-w-4xl mx-auto">
+                            <h2 className="section-title left">Our Strategic Narrative</h2>
+                            <div className="prose-premium">
+                                <p>
+                                    Kimani Wambua & Company Advocates is a premier legal practice and consultancy firm established in {FIRM_INFO.established}. Our firm was conceived with a clear directive: to provide sophisticated, timely, and amicable legal solutions that navigate the complexities of modern jurisprudence.
+                                </p>
+                                <p>
+                                    Strategically headquartered at {FIRM_INFO.address.building} in {FIRM_INFO.address.area}, we operate from one of Nairobi's most dynamic commercial hubs. Our location reflects our commitment to being at the center of regional growth and professional excellence.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </section>
 
-                {/* Vision, Mission, Strategy */}
-                <section className="section bg-surface">
+                {/* Pillars of Excellence */}
+                <section className="section section-subtle">
                     <div className="container">
-                        <div className="grid grid-cols-3" style={{ marginBottom: 'var(--space-2xl)' }}>
-                            <div className="card">
-                                <h3 style={{ color: 'var(--color-secondary)', marginBottom: 'var(--space-md)' }}>Our Vision</h3>
-                                <p style={{ fontSize: 'var(--font-size-lg)' }}>To be renowned global legal practitioners.</p>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                            <div className="card-premium p-10 bg-white">
+                                <h3 className="text-secondary text-sm font-bold uppercase tracking-widest mb-4">Our Vision</h3>
+                                <p className="text-lg leading-relaxed text-primary">To be renowned global legal practitioners, setting benchmarks of excellence in every territory we serve.</p>
                             </div>
-                            <div className="card">
-                                <h3 style={{ color: 'var(--color-secondary)', marginBottom: 'var(--space-md)' }}>Our Mission</h3>
-                                <p style={{ fontSize: 'var(--font-size-lg)' }}>To apply our core competencies to provide professional innovative legal solutions to satisfy our clients' needs.</p>
+                            <div className="card-premium p-10 bg-white">
+                                <h3 className="text-secondary text-sm font-bold uppercase tracking-widest mb-4">Our Mission</h3>
+                                <p className="text-lg leading-relaxed text-primary">To apply our core architectural competencies to provide innovative, results-oriented legal solutions for our clients.</p>
                             </div>
-                            <div className="card">
-                                <h3 style={{ color: 'var(--color-secondary)', marginBottom: 'var(--space-md)' }}>Our Strategy</h3>
-                                <p style={{ fontSize: 'var(--font-size-lg)' }}>Our focus is to cultivate and maintain mutually beneficial relationships with our clients and offer quality legal services through a highly competent and motivated professional team.</p>
+                            <div className="card-premium p-10 bg-white">
+                                <h3 className="text-secondary text-sm font-bold uppercase tracking-widest mb-4">Our Strategy</h3>
+                                <p className="text-lg leading-relaxed text-primary">Cultivating enduring, mutually beneficial relationships through a highly competent and motivated professional team.</p>
                             </div>
                         </div>
 
-                        {/* Mission Statement */}
-                        <div className="card" style={{ background: 'linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%)', color: 'var(--color-text-white)', padding: 'var(--space-2xl)', textAlign: 'center' }}>
-                            <h3 style={{ color: 'var(--color-secondary)', fontSize: 'var(--font-size-2xl)', marginBottom: 'var(--space-md)' }}>Mission Statement</h3>
-                            <p style={{ fontSize: 'var(--font-size-lg)', lineHeight: 'var(--line-height-relaxed)' }}>
-                                To aggressively represent our clients by offering quality professional legal counsel, uncompromising dedication and ensuring a high reputation as well as upholding ethical standards.
-                            </p>
+                        {/* Mission Statement Block */}
+                        <div className="mt-16 bg-primary p-12 text-center relative overflow-hidden">
+                            <div className="absolute inset-0 opacity-10 parallax-bg" style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=2070&auto=format&fit=crop)' }}></div>
+                            <div className="relative z-10">
+                                <h3 className="text-secondary text-2xl font-bold mb-6 tracking-wide">The Mission Statement</h3>
+                                <p className="text-xl text-white font-light italic max-w-3xl mx-auto leading-relaxed">
+                                    "To aggressively represent our clients by offering quality professional legal counsel, uncompromising dedication, and upholding the highest ethical standards of the bar."
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </section>
 
-                {/* Core Values */}
-                <section className="section">
+                {/* Core Values with Visual Hierarchy */}
+                <section className="section bg-white">
                     <div className="container">
-                        <div className="text-center" style={{ marginBottom: 'var(--space-2xl)' }}>
-                            <h2>Our Core Values</h2>
+                        <div className="text-center mb-16">
+                            <h2 className="section-title">Foundational Values</h2>
                         </div>
-                        <div className="grid grid-cols-2">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                             {CORE_VALUES.map((value) => (
-                                <div key={value.title} className="card">
-                                    <h3 style={{ color: 'var(--color-secondary)', marginBottom: 'var(--space-md)' }}>{value.title}</h3>
-                                    <p style={{ fontSize: 'var(--font-size-lg)', lineHeight: 'var(--line-height-relaxed)' }}>{value.description}</p>
+                                <div key={value.title} className="p-8 border-l-4 border-secondary bg-surface">
+                                    <h3 className="text-primary text-xl font-bold mb-3">{value.title}</h3>
+                                    <p className="text-primary-light leading-relaxed">{value.description}</p>
                                 </div>
                             ))}
                         </div>
                     </div>
                 </section>
 
-                {/* Professional Indemnity */}
-                <section className="section bg-surface">
-                    <div className="container" style={{ maxWidth: '900px', margin: '0 auto' }}>
-                        <div className="card">
-                            <h2>Professional Indemnity Insurance</h2>
-                            <p style={{ fontSize: 'var(--font-size-lg)', lineHeight: 'var(--line-height-relaxed)' }}>
-                                Our law firm is currently covered by professional indemnity insurance with Heritage Insurance Limited. No claims have been made against our law firm, any of our partners or against our insurance policy.
-                            </p>
-                            <p style={{ fontSize: 'var(--font-size-lg)', lineHeight: 'var(--line-height-relaxed)' }}>
-                                We regularly review our practice standards and risk management policies so that we and our clients are adequately covered at all times. This ensures we meet the recommended requirements of our business partners and clients.
-                            </p>
+                {/* Professional Integrity & Indemnity */}
+                <section className="section bg-black text-white relative overflow-hidden">
+                    <div className="absolute inset-0 opacity-20 parallax-bg" style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=2070&auto=format&fit=crop)' }}></div>
+                    <div className="container relative z-10">
+                        <div className="card-premium" style={{
+                            backgroundImage: 'linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url(https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=1500&auto=format&fit=crop)',
+                            backgroundSize: 'cover',
+                            backgroundPosition: 'center',
+                            backdropFilter: 'blur(10px)',
+                            border: '1px solid rgba(255,255,255,0.15)',
+                            padding: '6rem 4rem',
+                            borderRadius: '4px',
+                            maxWidth: '1000px',
+                            margin: '0 auto'
+                        }}>
+                            <h2 className="section-title left" style={{ color: '#ffffff', marginBottom: '2.5rem' }}>Professional Indemnity & Risk Management</h2>
+                            <div className="space-y-8 text-white text-lg leading-relaxed font-light">
+                                <p style={{ opacity: 1, fontSize: '1.25rem', lineHeight: '1.8' }}>
+                                    Kimani Wambua & Company Advocates maintains full professional indemnity coverage with <strong className="text-white font-bold" style={{ color: 'var(--color-accent)' }}>Britam General Insurance Limited</strong>. Our record is exemplary, with zero claims made against the firm or its partners.
+                                </p>
+                                <p style={{ opacity: 0.9, fontSize: '1.15rem', lineHeight: '1.8' }}>
+                                    We maintain a rigorous internal audit of our practice standards and risk management protocols to ensure our clients operate with absolute security and legal certainty. This commitment to indemnity is the cornerstone of our professional relationship with global entities.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </section>
 
-                {/* Our Clients */}
-                <section className="section">
+                {/* Client Portfolio Preview */}
+                <section className="section bg-white">
                     <div className="container">
-                        <div className="text-center" style={{ marginBottom: 'var(--space-2xl)' }}>
-                            <h2>Our Valued Clients</h2>
-                            <p style={{ fontSize: 'var(--font-size-lg)' }}>
-                                We represent a number of individual and corporate clients
-                            </p>
+                        <div className="text-center mb-16">
+                            <h2 className="section-title">Strategic Clients</h2>
+                            <p className="text-primary-light">Representing a portfolio of distinguished individual and corporate entities.</p>
                         </div>
-                        <div className="grid grid-cols-3">
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                             {MAJOR_CLIENTS.map((client) => (
-                                <div
-                                    key={client}
-                                    className="card text-center"
-                                    style={{
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        justifyContent: 'center',
-                                        minHeight: '120px',
-                                    }}
-                                >
-                                    <p style={{ fontSize: 'var(--font-size-base)', fontWeight: 'var(--font-weight-semibold)' }}>{client}</p>
+                                <div key={client} className="p-6 border border-gray-100 flex items-center justify-center text-center hover:shadow-md transition-shadow grayscale hover:grayscale-0">
+                                    <p className="font-bold text-primary text-sm tracking-tight">{client}</p>
                                 </div>
                             ))}
                         </div>
@@ -125,6 +127,15 @@ export default function AboutPage() {
                 </section>
             </main>
             <Footer />
+
+            <style jsx>{`
+                .prose-premium p {
+                    font-size: 1.25rem;
+                    line-height: 1.8;
+                    color: var(--color-primary-light);
+                    margin-bottom: 2rem;
+                }
+            `}</style>
         </>
     );
 }

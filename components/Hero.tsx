@@ -40,17 +40,16 @@ export default function Hero() {
                     width: '100%',
                     height: '120%', // Taller for parallax
                     zIndex: 0,
-                    backgroundImage: 'url(/images/hero-bg.svg)',
+                    backgroundImage: 'url(https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop)',
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                 }}
             >
-                {/* Overlay Pattern/Image can go here */}
+                {/* Dark Overlay for text readability */}
                 <div style={{
                     position: 'absolute',
                     inset: 0,
-                    opacity: 0.1,
-                    backgroundImage: 'radial-gradient(circle at 20% 50%, rgba(200, 200, 200, 0.3) 0%, transparent 50%)',
+                    backgroundColor: 'rgba(42, 42, 43, 0.7)', // Dark blend
                 }} />
 
                 {/* Accent Glow */}
@@ -60,7 +59,7 @@ export default function Hero() {
                     right: '10%',
                     width: '400px',
                     height: '400px',
-                    background: 'radial-gradient(circle, rgba(237, 29, 36, 0.15) 0%, transparent 70%)',
+                    background: 'radial-gradient(circle, rgba(237, 29, 36, 0.1) 0%, transparent 70%)',
                     filter: 'blur(60px)',
                 }} />
             </div>

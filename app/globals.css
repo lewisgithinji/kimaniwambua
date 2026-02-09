@@ -1,6 +1,12 @@
+@import "tailwindcss";
+
 /**
  * Kimani Wambua & Company Advocates
  * Design System & Global Styles
+ *
+ * NOTE: Tailwind CSS is imported here to provide utility classes.
+ * Existing custom styles are preserved below to maintain the current design.
+ * You can mix Tailwind classes with these custom styles.
  */
 
 /* ===================================
@@ -11,24 +17,43 @@
 /* ... (reset and base styles) ... */
 
 /* ===================================
-   UTILITY CLASSES - EFFECTS
+   UTILITY CLASSES - EFFECTS & LAYOUT
    =================================== */
 .glass {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-.glass-dark {
-  background: rgba(65, 64, 66, 0.8);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.text-gradient {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+.parallax-bg {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.section-subtle {
+  background-color: var(--color-surface);
+  position: relative;
+  overflow: hidden;
+}
+
+.section-subtle::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(var(--color-border) 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+.text-gradient-red {
+  background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-accent) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -61,38 +86,35 @@ body {
    DESIGN TOKENS - COLOR SYSTEM
    =================================== */
 :root {
-  /* Primary Colors - Actual Brand Palette from PDF Extraction */
-  --color-primary: #414042;
-  /* Charcoal Gray - Professional, Modern, Authoritative */
-  --color-primary-light: #5a5a5c;
-  --color-primary-dark: #2a2a2b;
+  /* Primary Colors - Black & Deep Professional Gray */
+  --color-primary: #000000;
+  --color-primary-light: #333333;
+  --color-primary-dark: #000000;
 
-  /* Secondary Colors - Brand Red */
-  --color-secondary: #ed1d24;
-  /* Bold Red - Energy, Impact, Call-to-Action */
-  --color-secondary-light: #f04149;
-  --color-secondary-dark: #d32f2f;
+  /* Secondary Colors - Professional Legal Red */
+  --color-secondary: #8B1A1E;
+  --color-secondary-light: #A31F23;
+  --color-secondary-dark: #5F1114;
 
-  /* Accent Colors */
-  --color-accent: #c41e3a;
-  /* Deep Red - Hover states, emphasis */
-  --color-accent-light: #e53e3e;
-  --color-accent-dark: #a41623;
+  /* Accent Colors - Highlights */
+  --color-accent: #ED1D24;
+  --color-accent-light: #FF3B42;
+  --color-accent-dark: #C4161C;
 
   /* Neutral Colors */
   --color-background: #ffffff;
-  --color-surface: #f8f9fa;
-  --color-surface-dark: #e9ecef;
-  --color-border: #dee2e6;
-  --color-text: #212529;
-  --color-text-light: #6c757d;
+  --color-surface: #fcfcfc;
+  --color-surface-dark: #f0f0f0;
+  --color-border: #e0e0e0;
+  --color-text: #0b0b0b;
+  --color-text-light: #444444;
   --color-text-white: #ffffff;
 
   /* Semantic Colors */
-  --color-success: #28a745;
-  --color-warning: #ffc107;
-  --color-error: #dc3545;
-  --color-info: #17a2b8;
+  --color-success: #1a5a2d;
+  --color-warning: #b58900;
+  --color-error: #8b1a1e;
+  --color-info: #0c4a6e;
 
   /* Spacing System (8px base) */
   --space-xs: 0.5rem;
@@ -112,25 +134,15 @@ body {
 
   /* Typography Scale */
   --font-size-xs: 0.75rem;
-  /* 12px */
   --font-size-sm: 0.875rem;
-  /* 14px */
-  --font-size-base: 1rem;
-  /* 16px */
-  --font-size-lg: 1.125rem;
-  /* 18px */
+  --font-size-base: 1.05rem;
+  --font-size-lg: 1.15rem;
   --font-size-xl: 1.25rem;
-  /* 20px */
-  --font-size-2xl: 1.5rem;
-  /* 24px */
-  --font-size-3xl: 2rem;
-  /* 32px */
-  --font-size-4xl: 2.5rem;
-  /* 40px */
-  --font-size-5xl: 3rem;
-  /* 48px */
-  --font-size-6xl: 4rem;
-  /* 64px */
+  --font-size-2xl: 1.6rem;
+  --font-size-3xl: 2.2rem;
+  --font-size-4xl: 3rem;
+  --font-size-5xl: 3.8rem;
+  --font-size-6xl: 5rem;
 
   /* Font Weights */
   --font-weight-normal: 400;
@@ -139,44 +151,102 @@ body {
   --font-weight-bold: 700;
 
   /* Line Heights */
-  --line-height-tight: 1.25;
+  --line-height-tight: 1.2;
   --line-height-normal: 1.6;
-  --line-height-relaxed: 1.75;
+  --line-height-relaxed: 1.8;
 
   /* Border Radius */
-  --radius-sm: 0.25rem;
-  /* 4px */
-  --radius-md: 0.5rem;
-  /* 8px */
-  --radius-lg: 0.75rem;
-  /* 12px */
+  --radius-sm: 0.125rem;
+  --radius-md: 0.25rem;
+  --radius-lg: 0.5rem;
   --radius-xl: 1rem;
-  /* 16px */
   --radius-full: 9999px;
 
-  /* Shadows */
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  /* Shadows - Premium Elevation */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.08);
+  --shadow-xl: 0 40px 100px rgba(0, 0, 0, 0.12);
 
   /* Transitions */
-  --transition-fast: 150ms ease-in-out;
-  --transition-base: 250ms ease-in-out;
-  --transition-slow: 350ms ease-in-out;
+  --transition-fast: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 400ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 600ms cubic-bezier(0.4, 0, 0.2, 1);
 
   /* Container */
-  --container-max-width: 1280px;
-  --container-padding: var(--space-md);
+  --container-max-width: 1320px;
+  --container-padding: 1.5rem;
 
   /* Z-index Scale */
-  --z-dropdown: 1000;
-  --z-sticky: 1020;
   --z-fixed: 1030;
-  --z-modal-backdrop: 1040;
-  --z-modal: 1050;
-  --z-popover: 1060;
-  --z-tooltip: 1070;
+}
+
+/* ===================================
+   PREMIUM COMPONENT UTILITIES
+   =================================== */
+.card-premium {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.card-premium:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--color-secondary);
+}
+
+.card-premium::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--color-secondary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-base);
+}
+
+.card-premium:hover::after {
+  transform: scaleX(1);
+}
+
+.btn-premium {
+  padding: 1rem 2.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.85rem;
+  font-weight: 700;
+  border-radius: 0;
+  transition: all var(--transition-base);
+}
+
+.section-title {
+  position: relative;
+  padding-bottom: 1.5rem;
+  margin-bottom: 3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: var(--color-secondary);
+}
+
+.section-title.left::after {
+  left: 0;
+  transform: none;
 }
 
 /* ===================================
@@ -234,6 +304,31 @@ a {
 
 a:hover {
   color: var(--color-accent-dark);
+}
+
+.text-white {
+  color: #ffffff !important;
+}
+
+.text-white h1,
+.text-white h2,
+.text-white h3,
+.text-white h4,
+.text-white h5,
+.text-white h6,
+.text-white p,
+.text-white span,
+.text-white div {
+  color: inherit !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.bg-black .section-title {
+  color: #ffffff !important;
+}
+
+.bg-black .section-title::after {
+  background: var(--color-accent) !important;
 }
 
 /* ===================================
