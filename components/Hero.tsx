@@ -1,21 +1,36 @@
 'use client';
 
 import Link from 'next/link';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { FIRM_INFO } from '@/lib/constants';
+
+const HERO_IMAGES = [
+    'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=2070&auto=format&fit=crop', // Scales & Books
+    'https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?q=80&w=2070&auto=format&fit=crop', // Library
+    'https://images.unsplash.com/photo-1583508915901-b5f84c1dcde1?q=80&w=2070&auto=format&fit=crop', // Pen
+];
 
 export default function Hero() {
     const heroRef = useRef<HTMLDivElement>(null);
+    const [currentImage, setCurrentImage] = useState(0);
 
     useEffect(() => {
         const handleScroll = () => {
             if (heroRef.current) {
                 const scrollY = window.scrollY;
-                heroRef.current.style.transform = `translateY(${scrollY * 0.5}px)`;
+                heroRef.current.style.transform = `translateY(${scrollY * 0.4}px)`;
             }
         };
+
+        const slideInterval = setInterval(() => {
+            setCurrentImage((prev) => (prev + 1) % HERO_IMAGES.length);
+        }, 6000);
+
         window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+            clearInterval(slideInterval);
+        };
     }, []);
 
     return (
@@ -27,30 +42,43 @@ export default function Hero() {
                 alignItems: 'center',
                 justifyContent: 'center',
                 overflow: 'hidden',
-                backgroundColor: 'var(--color-primary)', // Fallback
+                backgroundColor: '#000',
             }}
         >
-            {/* Parallax Background */}
+            {/* Parallax Slider Layer */}
             <div
                 ref={heroRef}
                 style={{
                     position: 'absolute',
-                    top: 0,
+                    top: '-10%',
                     left: 0,
                     width: '100%',
-                    height: '120%', // Taller for parallax
+                    height: '120%',
                     zIndex: 0,
-                    backgroundImage: 'url(https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop)',
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
                 }}
             >
-                {/* Dark Overlay for text readability */}
-                <div style={{
-                    position: 'absolute',
-                    inset: 0,
-                    backgroundColor: 'rgba(42, 42, 43, 0.7)', // Dark blend
-                }} />
+                {HERO_IMAGES.map((img, idx) => (
+                    <div
+                        key={img}
+                        style={{
+                            position: 'absolute',
+                            inset: 0,
+                            backgroundImage: `url(${img})`,
+                            backgroundSize: 'cover',
+                            backgroundPosition: 'center',
+                            opacity: currentImage === idx ? 1 : 0,
+                            transition: 'opacity 2.5s ease-in-out',
+                            zIndex: currentImage === idx ? 1 : 0,
+                        }}
+                    >
+                        {/* Dark Overlay for text readability */}
+                        <div style={{
+                            position: 'absolute',
+                            inset: 0,
+                            backgroundColor: 'rgba(0, 0, 0, 0.65)',
+                        }} />
+                    </div>
+                ))}
 
                 {/* Accent Glow */}
                 <div style={{
@@ -59,8 +87,9 @@ export default function Hero() {
                     right: '10%',
                     width: '400px',
                     height: '400px',
-                    background: 'radial-gradient(circle, rgba(237, 29, 36, 0.1) 0%, transparent 70%)',
+                    background: 'radial-gradient(circle, rgba(237, 29, 36, 0.15) 0%, transparent 70%)',
                     filter: 'blur(60px)',
+                    zIndex: 2
                 }} />
             </div>
 
