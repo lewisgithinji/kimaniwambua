@@ -62,46 +62,52 @@ export default function PracticeAreasPage() {
                     </div>
                 </section>
 
-                {/* Global Expertise Portal CTA */}
-                <section className="relative py-32 overflow-hidden bg-black text-white">
+                {/* Global Expertise Portal - Immersive Branch Section */}
+                <section className="relative py-48 overflow-hidden bg-black">
+                    {/* Parallax Background Layer */}
                     <div
-                        className="absolute inset-0 z-0 parallax-bg opacity-20"
-                        style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=2070&auto=format&fit=crop)' }}
+                        className="absolute inset-0 z-0"
+                        style={{
+                            backgroundImage: 'url(https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=2070&auto=format&fit=crop)',
+                            backgroundSize: 'cover',
+                            backgroundPosition: 'center',
+                            backgroundAttachment: 'fixed',
+                            opacity: '0.4'
+                        }}
                     ></div>
+                    {/* Dark Institutional Overlay */}
+                    <div className="absolute inset-0 z-1" style={{ background: 'radial-gradient(circle at center, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.95) 100%)' }}></div>
 
                     <div className="container relative z-10">
-                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', alignItems: 'stretch' }}>
-                            <div className="card-premium" style={{
-                                backgroundImage: 'linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url(https://images.unsplash.com/photo-1505664194779-8beaceb93744?q=80&w=1000&auto=format&fit=crop)',
-                                backgroundSize: 'cover',
-                                backgroundPosition: 'center',
-                                backdropFilter: 'blur(5px)',
-                                border: '1px solid rgba(255,255,255,0.15)',
-                                padding: '4rem',
-                                borderRadius: '4px',
-                                display: 'flex',
-                                flexDirection: 'column',
-                                justifyContent: 'center'
-                            }}>
-                                <h2 className="section-title left" style={{ color: '#ffffff !important', fontSize: '2.5rem', marginBottom: '2rem' }}>Global Legal Architecture</h2>
-                                <p style={{ fontSize: '1.25rem', lineHeight: '1.8', color: '#ffffff', opacity: 1, fontWeight: '400', marginBottom: '3rem' }}>
+                        <div className="grid lg:grid-cols-2 gap-12 items-stretch">
+                            {/* Narrative Plate */}
+                            <div className="bg-white/5 backdrop-blur-md border border-white/10 p-12 md:p-16 rounded-sm flex flex-col justify-center shadow-2xl">
+                                <span className="text-red-600 font-bold tracking-[0.4em] uppercase text-xs mb-6 block">Strategic Command</span>
+                                <h2 className="section-title left" style={{ color: '#ffffff', fontSize: '3rem', marginBottom: '2.5rem' }}>Global Legal Architecture</h2>
+                                <p className="text-xl md:text-2xl leading-relaxed text-gray-200 font-light mb-12">
                                     Navigating the complexities of contemporary jurisprudence requires more than just advice; it requires strategic architectural legal maneuvers tailored to global standards.
                                 </p>
                                 <div>
-                                    <a href="/contact" className="btn-premium btn-primary btn-lg">
+                                    <a href="/contact" className="inline-block px-12 py-5 bg-red-600 hover:bg-red-700 text-white font-bold text-lg uppercase tracking-widest transition-all hover:-translate-y-1 hover:shadow-xl">
                                         Establish Contact
                                     </a>
                                 </div>
                             </div>
-                            <div className="card-premium" style={{ background: 'rgba(0,0,0,0.85)', backdropFilter: 'blur(15px)', border: '1px solid rgba(255,255,255,0.15)', padding: '4rem', borderRadius: '4px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                                <h3 style={{ color: 'var(--color-accent)', fontSize: '1.2rem', textTransform: 'uppercase', letterSpacing: '0.2em', marginBottom: '1.8rem', fontWeight: '700' }}>Strategic Consultations</h3>
-                                <p style={{ color: '#ffffff', opacity: 0.95, fontSize: '1.15rem', lineHeight: '1.8', marginBottom: '2.5rem' }}>
-                                    Connect with our senior partners to discuss your organization's legal roadmap and strategic risk mitigation.
+
+                            {/* Info Card */}
+                            <div className="bg-black/40 backdrop-blur-2xl border border-white/5 p-12 md:p-16 flex flex-col justify-center shadow-2xl relative">
+                                <div className="absolute top-0 right-0 w-32 h-32 bg-red-600/10 blur-[80px]"></div>
+                                <h3 className="text-red-500 text-sm font-black tracking-[0.3em] uppercase mb-8">Strategic Consultations</h3>
+                                <p className="text-gray-300 text-lg md:text-xl leading-relaxed mb-10">
+                                    Connect with our senior partners to discuss your organization's legal roadmap and strategic risk mitigation. Our registry ensures top-tier priority for institutional matters.
                                 </p>
-                                <div style={{ borderTop: '1px solid rgba(255,255,255,0.15)', paddingTop: '2.5rem' }}>
-                                    <p style={{ display: 'flex', alignItems: 'center', gap: '1rem', color: 'white', fontWeight: '700', fontSize: '1.1rem' }}>
-                                        <span style={{ color: 'var(--color-accent)' }}>●</span> Priority Registry Active
-                                    </p>
+                                <div className="pt-8 border-t border-white/10">
+                                    <div className="flex items-center gap-4 text-white">
+                                        <div className="p-2 border border-red-600/30 rounded-full animate-pulse">
+                                            <div className="w-3 h-3 bg-red-600 rounded-full"></div>
+                                        </div>
+                                        <span className="font-bold tracking-widest uppercase text-xs">Priority Registry Active</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>

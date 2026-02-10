@@ -14,9 +14,12 @@ const CIRCLE_COLORS = [
 ];
 
 export default function PracticeGrid() {
+    // Filter out "Probate Administration" (id: 7) for the homepage to maintain a perfectly balanced 2x3 grid.
+    const displayAreas = PRACTICE_AREAS.filter(area => area.id !== 7);
+
     return (
         <div className="practice-architecture-grid">
-            {PRACTICE_AREAS.map((area, index) => (
+            {displayAreas.map((area, index) => (
                 <Link
                     href={`/practice-areas`}
                     key={area.id}
