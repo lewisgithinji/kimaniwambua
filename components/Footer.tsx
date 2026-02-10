@@ -107,9 +107,8 @@ export default function Footer() {
                 }
 
                 .footer-logo {
-                    height: 120px;
+                    height: 40px;
                     width: auto;
-                    filter: brightness(0) invert(1);
                     margin-bottom: 2rem;
                 }
 
