@@ -5,9 +5,9 @@ import { useEffect, useRef, useState } from 'react';
 import { FIRM_INFO } from '@/lib/constants';
 
 const HERO_IMAGES = [
-    'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=2070&auto=format&fit=crop', // Scales & Books
+    '/images/KW-Books-glass.jpg', // User provided local image 1
     'https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?q=80&w=2070&auto=format&fit=crop', // Library
-    'https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=2070&auto=format&fit=crop', // Fountain pen
+    '/images/KW-Pen.jpg', // User provided local image 3
 ];
 
 export default function Hero() {
