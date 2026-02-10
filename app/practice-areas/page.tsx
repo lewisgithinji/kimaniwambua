@@ -19,7 +19,7 @@ export default function PracticeAreasPage() {
                 <PageHero
                     title="Our Practice Areas"
                     description="Comprehensive legal services tailored to meet your business and personal needs"
-                    backgroundImage="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=2070&auto=format&fit=crop"
+                    backgroundImage="https://images.unsplash.com/photo-1505663912202-ac22d4cb3707?q=80&w=2070&auto=format&fit=crop"
                 />
 
                 {/* Practice Areas Grid */}
